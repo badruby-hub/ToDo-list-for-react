@@ -4,7 +4,7 @@ import classes from "@/components/pages/Header.module.css";
 const 
    pages = [
     {href:'/', title: 'home'},
-    {href:'/ToDo', title:'ToDo-list'}
+    {href:'/ToDo', title:'ToDo-list'},
    ];
 
 export function Header(){

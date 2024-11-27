@@ -1,7 +1,8 @@
-import { ToDoList } from "@/components/ToDo";
+import { DemoToDo } from "../components/demo/Demo-ToDo";
 
-export default function ToDO(){
+
+export default function ToDo(){
 return<>
- <ToDoList/>
+<DemoToDo/>
 </>
 }
