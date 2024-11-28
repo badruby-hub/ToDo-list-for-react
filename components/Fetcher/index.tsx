@@ -14,7 +14,7 @@ export function Fetcher({url, onload, children}) {
        useEffect(()=>{
         console.debug('useEffect');
         setData(null);
-    setError(null);
+        setError(null);
 async function go() {
     const 
         responce = await fetch(url),
