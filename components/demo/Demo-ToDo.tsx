@@ -71,6 +71,8 @@ export  function DemoToDo(){
                         case ADD:
                             const newObj = {};
                             config.columns.map(({setVal},i)=>setVal && Object.assign(newObj,setVal(addValues[i])));
+                        const maxId = data.length > 0 ? Math.max(...data.map(item => item.id)) : 0;
+                        newObj.id = (maxId + 1).toString(); 
                             optimisticData = data.concat(newObj);
                             return fetch(API_URL, {
                                  method: 'POST',
@@ -80,6 +82,7 @@ export  function DemoToDo(){
                               if (!res.ok) {
                                 throw (new Error(res.status + ' ' + res.statusText));
                               }
+                              setAddValues(Array.from({ length: config.columns.length }, () => ''));
                           });
                         }
                     },

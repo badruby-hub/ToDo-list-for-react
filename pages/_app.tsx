@@ -8,7 +8,9 @@ export default function App({ Component, pageProps }: AppProps) {
   <Header/>
   <main>
   <Component {...pageProps} />
-  <Toaster/>
+  <Toaster  
+  position="bottom-right"
+  reverseOrder={false}/>
   </main>
    </>
 }

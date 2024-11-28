@@ -15,7 +15,7 @@ export function ObjTable({data,config, children}){
 
 
 function Description({data,config}) {
-    return  <div className={classes.items}>
+    return  <div  className={classes.items}>
     {data.map(obj => <div key={obj.id} className={classes.item}>
        <ul key={obj.id} data-id={obj.id}>
         {config.columns.map(({title,content})=><li key={title}>
