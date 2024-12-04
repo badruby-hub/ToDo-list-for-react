@@ -1,8 +1,14 @@
+.zagolovok{
+    text-align: center;
+    margin: 1em 0 .4em 0;
+    color:aqua;
+   }
 .form { 
+    
         display: flex;
         height: 100px;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         button{
             margin-inline: 3px;

@@ -4,31 +4,39 @@ import useSWR from 'swr';
 import toast from 'react-hot-toast';
 import { Error } from '../Error/index';
 import { useState } from "react";
-import classes from "./Demo-ToDo.module.css"
+import classes from "./ToDo-Swr.module.css";
+
 const 
-API_URL = 'http://localhost:3001/users',
+API_URL = 'http://localhost:3002/todo',
 DELETE = 'del',
-CHECK = 'check',
+CHECK = 'toggle-checkbox',
 ADD ='add',
 fetcher = async () => {
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error('fetch ' + response.status);
     return await response.json();
 },
+
 infofetcher = async()=>{
     const pr = fetcher()
     toast.promise(pr,{
         loading:'Fetcher',
-        success:'ok',
+        success:'Авто-обновление',
         error: (err) => `${err.toString()}`,
     });
     return await pr
 },
 columns = config.columns;
 
+
+
+
 function AddForm({columns,values,setValues}) {
 
-    return <div className={classes.form}>
+    return<>
+    <h3 className={classes.zagolovok}>Добавьте дело</h3>
+   
+    <div className={classes.form}>
          {columns.map(({setVal},i)=> <div key={i}>
             {setVal
                 ? <input
@@ -39,13 +47,14 @@ function AddForm({columns,values,setValues}) {
          )}
         <div>
             <button data-action={ADD}>Добавить</button>
-            <button data-action='cancel'onClick={()=>setValues(Array.from({length: columns.length},()=>''))}>Сброс</button>
+            <button data-action='cancel' onClick={()=>setValues(Array.from({length: columns.length},()=>''))}>Сброс</button>
 
         </div>
     </div>
+    </> 
 }
 
-export  function DemoToDo(){
+export  function ToDoSwr(){
     const 
     { data, error, isLoading, isValidating, mutate } = useSWR(API_URL, infofetcher,{revalidateOnFocus:false}),
     [addValues,setAddValues]= useState(Array.from({length: config.columns.length},()=>'')),
@@ -56,6 +65,7 @@ export  function DemoToDo(){
            console.log("onClick", {action,id});
            if(!action)return;
            let optimisticData;
+           let newObj;
            const 
               getPromise=()=>{
                     switch (action) {
@@ -69,10 +79,11 @@ export  function DemoToDo(){
                               }
                              });
                         case ADD:
-                            const newObj = {};
+                            newObj = {};
                             config.columns.map(({setVal},i)=>setVal && Object.assign(newObj,setVal(addValues[i])));
-                        const maxId = data.length > 0 ? Math.max(...data.map(item => item.id)) : 0;
-                        newObj.id = (maxId + 1).toString(); 
+                            const maxId = data.reduce((max, item) => Math.max(max, item.id), 0);
+                            newObj.id = (maxId + 1).toString();
+                            newObj.checked = false;
                             optimisticData = data.concat(newObj);
                             return fetch(API_URL, {
                                  method: 'POST',
@@ -84,28 +95,44 @@ export  function DemoToDo(){
                               }
                               setAddValues(Array.from({ length: config.columns.length }, () => ''));
                           });
+                          case CHECK:
+                            return fetch(API_URL + '/' + id, {
+                                method: 'PATCH',
+                                headers:{'Content-Type': 'application/json'},
+                                body: JSON.stringify({checked: !data.find(el=> String(id) === String(el.id))?.checked})
+                             });
                         }
+                       
                     },
               promise = getPromise();
 
            if(promise){
+            let successMessage = '';
+            if (action === ADD) {
+                successMessage = 'Дело добавлено';
+            } else if (action === DELETE) {
+                successMessage = 'Дело удалено';
+            } else if (action === CHECK) {
+                const сheckedStatus = data.find(el => String(el.id) === String(id))?.checked;
+                successMessage = сheckedStatus ? 'Статус: В процессе' : 'Статус: Выполнено';
+           
+            }
             toast.promise(promise,{
                 loading:'Fetching' + action,
-                success:'ok',
+                success: successMessage,
                 error: (err) => `${err.toString()}`,
             });
             await mutate(promise.then( ()=> optimisticData, fetcher), {optimisticData, revalidate:true});
            }
     };
     return <>
-    <div style={{ position: 'absolute', fontSize: 'xxx-large' }}>
+    <div style={{  top:'4rem',left:'35rem', position: 'absolute', fontSize: 'xxx-large' }}>
       {isLoading && '⌛'}
       {isValidating && '👁'}
     </div>
     {error && <Error error={error} />}
          <div onClick={onClick}>
         {data && <ObjTable data={data} config={{columns}}>
-            
             <AddForm columns={config.columns} values={addValues} setValues={setAddValues}/>
                  </ObjTable>
             }

@@ -1,8 +1,8 @@
-import { DemoToDo } from "../components/demo/Demo-ToDo";
+import { ToDoSwr } from "../components/demo/ToDo-Swr";
 
 
 export default function ToDo(){
 return<>
-<DemoToDo/>
+<ToDoSwr/>
 </>
 }
