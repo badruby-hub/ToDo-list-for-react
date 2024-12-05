@@ -17,7 +17,7 @@ export function ObjTable({ data,config,children}){
 }
 
 
-function Description({data,config,checked}) {
+function Description({data,config}) {
     const [items, setItems] = useState(data);
 
     const checkbox = (id) => {
@@ -41,7 +41,6 @@ function Description({data,config,checked}) {
              onChange={() => checkbox(obj.id)}
              data-action={'toggle-checkbox'}/>
             <button data-action={'del'}>X</button>
-            {checked && "🙈"}
             </div>
             
     </ul> </div>)}

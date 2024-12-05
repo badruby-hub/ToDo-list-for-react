@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "json-serv": "npx json-server -p 3002 db.json" ,
+    "my-serv": "node --experimental-sqlite --watch min_serv.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
