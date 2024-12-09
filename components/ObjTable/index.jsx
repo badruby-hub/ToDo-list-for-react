@@ -31,10 +31,10 @@ function Description({data,config,checked}) {
     {data.map(obj => <div key={obj.id} className={classes.item}>
        <ul className={classes.content} key={obj.id} data-id={obj.id}>
         {config.columns.map(({title,content})=>
-        <li key={title}>
+        <li className={classes.info} key={title}>
              {content(obj)}
         </li>)}
-        <div>
+        <div className={classes.checkbox}>
             <input 
              type="checkbox" 
              checked={obj.checked} 

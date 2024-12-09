@@ -25,13 +25,14 @@
         display: flex;
         justify-content:space-between;
         padding: 0;
-        div{
+
+        .checkbox{
             display: flex;
             flex-direction: row;
             align-items: center;
             
         }
-        li{
+        .info{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
