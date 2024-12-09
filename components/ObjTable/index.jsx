@@ -18,7 +18,7 @@ export function ObjTable({ data,config,children}){
 
 
 function Description({data,config,checked}) {
-    const [ setItems] = useState(data);
+    const [items, setItems] = useState(data);
 
     const checkbox = (id) => {
         setItems(prevItems =>
