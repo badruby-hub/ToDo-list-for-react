@@ -1,5 +1,5 @@
 .navigation{
-    ul{ 
+  .block{ 
        display: flex;
        justify-content: space-around;
        list-style: none;
@@ -7,17 +7,18 @@
        margin: 0;
        padding-block: .4em;
        background-color: black;
-      li{
+       .page{
         border: 3px solid gray;
         user-select: none;
+        a{
+          padding: .2em;
+          color: white;
+          text-decoration: none;
+        }
       }
-      li:active{
+      .page:active{
         background-color:cadetblue;
       }
-       a{
-        padding: .2em;
-        color: white;
-        text-decoration: none;
-      }
+      
       }
 }

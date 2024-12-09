@@ -31,19 +31,6 @@
             flex-direction: row;
             align-items: center;
             
-        }
-        .info{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            color: black;
-            overflow-wrap:anywhere;
-            max-width: 50%;
-            
-        }
-    }
-    }
-   
     [type="checkbox"] {
         appearance   : none;
         border       : 2px solid red;
@@ -89,6 +76,20 @@
         ;
     
     }
+            
+        }
+        .info{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: black;
+            overflow-wrap:anywhere;
+            max-width: 50%;
+            
+        }
+    }
+    }
+   
     
 }
 

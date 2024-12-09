@@ -10,8 +10,8 @@ const
 export function Header(){
     return <header>
 <nav className={classes.navigation}>
-    <ul>
-    {pages.map(({href,title})=> <li key={href}>
+    <ul className={classes.block}>
+    {pages.map(({href,title})=> <li className={classes.page} key={href}>
         <Link href={href}>{title}</Link>
     </li>)}
     </ul>
