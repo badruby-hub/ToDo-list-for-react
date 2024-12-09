@@ -28,7 +28,7 @@ async function go() {
     }
 };
      go();
-       },[url]);
+       },[url, onload]);
 
     if (error)
         return <Error error={error}/>
