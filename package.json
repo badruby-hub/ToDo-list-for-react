@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "json-serv": "npx json-server -p 3002 db.json" ,
+    "json-serv": "npx json-server -p 3002 db.json",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
     "better-sqlite3": "^11.6.0",
     "json-server": "^1.0.0-beta.3",
     "next": "15.0.3",
