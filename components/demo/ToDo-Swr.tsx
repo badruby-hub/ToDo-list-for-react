@@ -7,7 +7,7 @@ import { useState } from "react";
 import classes from "./ToDo-Swr.module.css";
 
 const 
-API_URL = 'http://localhost:3002/todo',
+API_URL = 'api/todo',
 DELETE = 'del',
 CHECK = 'toggle-checkbox',
 ADD ='add',
