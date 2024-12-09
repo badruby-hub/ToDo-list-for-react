@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import classes from "./ObjTable.module.css";
 
 
-export function ObjTable({ data,config,children}){
+export const  ObjTable = memo (function ObjTable({ data,config,children}){
     console.debug('ToDoList render');
     return <div className={classes.table}> 
-  
         {children}
-
         <div className={classes.container}>
         <Description data={data}  config={config}/>
-        
         </div>
-
     </div>
-}
+});
 
 
 function Description({data,config,checked}) {

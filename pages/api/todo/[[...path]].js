@@ -1,16 +1,9 @@
 import { neon } from '@neondatabase/serverless'
 
     const sql = neon(process.env.DATABASE_URL);
-    // const addSt = await sql`INSERT INTO todo (text) values(?) `;
-    // const deleteSt = await sql`
-        // DELETE from todo where id = ? `;
-    // const update = await sql`
-    //     UPDATE todo set checked = ? where id=?`;
-  
-
-
     
 export default async function todo(req,res){
+  console.log("path todo");
  const 
     { path} = req.query,
     id = path?.[0];

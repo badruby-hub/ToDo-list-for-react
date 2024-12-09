@@ -12,13 +12,16 @@ DELETE = 'del',
 CHECK = 'toggle-checkbox',
 ADD ='add',
 fetcher = async () => {
+    console.log("fether");
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error('fetch ' + response.status);
     return await response.json();
+    
 },
 
 infofetcher = async()=>{
-    const pr = fetcher()
+    console.log("infofetcher",);
+    const pr = fetcher();
     toast.promise(pr,{
         loading:'Fetcher',
         success:'Авто-обновление',
