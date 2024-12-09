@@ -19,7 +19,7 @@
             border-radius: 20px;
         }
        }
-        ul{
+        .content{
         width: 100%;
         list-style: none;
         display: flex;

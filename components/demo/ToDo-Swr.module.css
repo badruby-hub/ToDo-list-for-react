@@ -10,7 +10,7 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
-        button{
+        .btn{
             margin-inline: 3px;
         }
 }

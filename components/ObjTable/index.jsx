@@ -29,7 +29,7 @@ function Description({data,config,checked}) {
     };
     return <div className={classes.items}>
     {data.map(obj => <div key={obj.id} className={classes.item}>
-       <ul key={obj.id} data-id={obj.id}>
+       <ul className={classes.content} key={obj.id} data-id={obj.id}>
         {config.columns.map(({title,content})=>
         <li key={title}>
              {content(obj)}

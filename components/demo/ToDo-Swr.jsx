@@ -46,8 +46,8 @@ function AddForm({columns,values,setValues}) {
                 </div>
          )}
         <div>
-            <button data-action={ADD}>Добавить</button>
-            <button data-action='cancel' onClick={()=>setValues(Array.from({length: columns.length},()=>''))}>Сброс</button>
+            <button className={classes.btn} data-action={ADD}>Добавить</button>
+            <button className={classes.btn} data-action='cancel' onClick={()=>setValues(Array.from({length: columns.length},()=>''))}>Сброс</button>
 
         </div>
     </div>
