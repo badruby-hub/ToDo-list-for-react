@@ -31,51 +31,7 @@
             flex-direction: row;
             align-items: center;
             
-    [type="checkbox"] {
-        appearance   : none;
-        border       : 2px solid red;
-        border-radius: 5px;
-        width        : 40px;
-        height       : 21px;
-    
-    }
-    
-    
-    [type="checkbox"]::before {
-        display         : block;
-        content         : '';
-        margin-right    : 5px;
-        width           : 21px;
-        height          : 18px;
-        border-radius   : 5px;
-        background-color: red;
-        ;
-    
-    }
-    
-    [type="checkbox"]:checked {
-        appearance   : none;
-        border       : 2px solid green;
-        border-radius: 5px;
-        width        : 40px;
-        height       : 21px;
-        text-align   : center;
-    }
-    
-    
-    
-    [type="checkbox"]:checked::before {
-        
-        display         : block;
-        content         : '';
-        margin-left     : 17px;
-        width           : 21px;
-        height          : 18px;
-        border-radius   : 5px;
-        background-color: green;
-        ;
-    
-    }
+   
             
         }
         .info{
@@ -93,3 +49,48 @@
     
 }
 
+.content [type="checkbox"] {
+    appearance   : none;
+    border       : 2px solid red;
+    border-radius: 5px;
+    width        : 40px;
+    height       : 21px;
+
+}
+
+
+.content [type="checkbox"]::before {
+    display         : block;
+    content         : '';
+    margin-right    : 5px;
+    width           : 21px;
+    height          : 18px;
+    border-radius   : 5px;
+    background-color: red;
+    ;
+
+}
+
+.content [type="checkbox"]:checked {
+    appearance   : none;
+    border       : 2px solid green;
+    border-radius: 5px;
+    width        : 40px;
+    height       : 21px;
+    text-align   : center;
+}
+
+
+
+.content [type="checkbox"]:checked::before {
+    
+    display         : block;
+    content         : '';
+    margin-left     : 17px;
+    width           : 21px;
+    height          : 18px;
+    border-radius   : 5px;
+    background-color: green;
+    ;
+
+}

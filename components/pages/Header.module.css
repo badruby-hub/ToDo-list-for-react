@@ -10,15 +10,17 @@
        .page{
         border: 3px solid gray;
         user-select: none;
-        a{
-          padding: .2em;
-          color: white;
-          text-decoration: none;
-        }
+   
       }
       .page:active{
         background-color:cadetblue;
       }
       
       }
+
+}
+.block a{
+  padding: .2em;
+  color: white;
+  text-decoration: none;
 }
