@@ -17,6 +17,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/ToDo.ts", "components/ToDoList/demo.jsx", "components/ObjTable/index.tsx", "components/Fetcher/index.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/ToDo.ts", "components/ToDoList/demo.jsx", "components/ObjTable/index.jsx", "components/Fetcher/index.jsx", "components/demo/ToDo-Swr.jsx"],
   "exclude": ["node_modules"]
 }
