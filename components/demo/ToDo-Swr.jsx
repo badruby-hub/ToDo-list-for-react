@@ -23,7 +23,7 @@ infofetcher = async()=>{
     console.log("infofetcher",);
     const pr = fetcher();
     toast.promise(pr,{
-        loading:'Fetcher',
+        loading:'Загрузка',
         success:'Авто-обновление',
         error: (err) => `${err.toString()}`,
     });
@@ -121,7 +121,7 @@ export  function ToDoSwr(){
            
             }
             toast.promise(promise,{
-                loading:'Fetching' + action,
+                loading: "Загрузка: " + action,
                 success: successMessage,
                 error: (err) => `${err.toString()}`,
             });
