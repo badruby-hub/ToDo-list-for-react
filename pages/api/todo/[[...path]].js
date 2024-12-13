@@ -3,15 +3,11 @@ import { neon } from '@neondatabase/serverless'
     const sql = neon(process.env.DATABASE_URL);
     
 export default async function todo(req,res){
-  console.log("path todo");
  const 
     { path} = req.query,
     id = path?.[0];
     console.log("***", { id});
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PATCH, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
 
                   switch (req.method) {
@@ -19,7 +15,6 @@ export default async function todo(req,res){
                         res.writeHead(204);
                         break;
                     case 'GET':
-                        res.setHeader('content-type', 'application/json; charset=utf-8');
                         const getAllSt = await sql`SELECT * FROM todo`;
                         res.status(200).json(getAllSt)
                       break;

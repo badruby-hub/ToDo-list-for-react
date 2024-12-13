@@ -12,9 +12,10 @@ DELETE = 'del',
 CHECK = 'toggle-checkbox',
 ADD ='add',
 fetcher = async () => {
-    console.log("fether");
+
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error('fetch ' + response.status);
+    console.log("fether", response);
     return await response.json();
     
 },
