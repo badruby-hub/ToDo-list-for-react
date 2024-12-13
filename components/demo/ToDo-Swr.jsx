@@ -12,10 +12,6 @@ DELETE = 'del',
 CHECK = 'toggle-checkbox',
 ADD ='add',
 fetcher = async () => {
-<<<<<<< HEAD
-
-=======
->>>>>>> b62c9818a866bf7921e0c6b8caf1fbaec1bc1436
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error('fetch ' + response.status);
     console.log("fether", response);
