@@ -3,7 +3,7 @@ import classes from "@/components/pages/Header.module.css";
 
 const 
    pages = [
-    {href:'/', title: 'home'},
+    {href:'/', title: 'Home'},
     {href:'/ToDo', title:'ToDo-list'},
    ];
 
